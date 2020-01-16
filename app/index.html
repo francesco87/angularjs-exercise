@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it" ng-app="crossOverApp" ng-strict-di="false">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cross Over Project</title>
+    <meta name="description" content="Cross Over Project">
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endbuild -->
+
+  </head>
+  <body id="body" ng-controller="mainCtrl" ng-init="init()">
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- ANGULARJS VIEW -->
+    <div ui-view></div>
+    <!-- ANGULARJS VIEW -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/chart.js/dist/Chart.js"></script>
+    <script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/mainController.js"></script>
+    <script src="scripts/services/resource.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <!-- endbuild -->
+
+  </body>
+</html>

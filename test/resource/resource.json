@@ -1,0 +1,235 @@
+[
+  {
+    "type": "build",
+    "name": "Tenrox-R1_1235",
+    "status": "pending"
+  },
+  {
+    "type": "firewall",
+    "name": "432462",
+    "owner": "jtuck",
+    "date": "2014-04-18T12:12:00Z",
+    "status": "running",
+    "metrics": {
+      "test": {
+        "value": 64,
+        "status": "running"
+      },
+      "maintainability": {
+        "value": 53,
+        "status": "running"
+      },
+      "security": {
+        "value": 72,
+        "status": "running"
+      },
+      "workmanship": {
+        "value": 64,
+        "status": "running"
+      },
+      "status": "running"
+    },
+    "build": {
+      "debug": false,
+      "release": false,
+      "status": "pending"
+    },
+    "unitTest": {
+      "passed": 0,
+      "declined": 0,
+      "coveredCode": 0,
+      "status": "pending"
+    },
+    "functionalTest": {
+      "passed": 0,
+      "declined": 0,
+      "coveredCode": 0,
+      "status": "pending"
+
+    }
+  },
+  {
+    "type": "firewall",
+    "name": "432459",
+    "owner": "sammy",
+    "date": "2014-04-18T10:53:00Z",
+    "status": "rejected",
+    "metrics": {
+      "test": {
+        "value": 64,
+        "status": "ok"
+      },
+      "maintainability": {
+        "value": 53,
+        "status": "ko"
+      },
+      "security": {
+        "value": 64,
+        "status": "enough"
+      },
+      "workmanship": {
+        "value": 72,
+        "status": "enough"
+      },
+      "status": "rejected"
+    },
+    "build": {
+      "debug": true,
+      "release": true,
+      "status": "completed",
+      "date": "2014-04-18T10:40:00Z"
+    },
+    "unitTest": {
+      "passed": 142,
+      "declined": 10,
+      "passedPercentage": 73,
+      "coveredCode": 76,
+      "status": "completed"
+    },
+    "functionalTest": {
+      "passed": 4321,
+      "declined": 2145,
+      "passedPercentage": 68,
+      "coveredCode": 23,
+      "status": "completed"
+
+    },
+    "errorMessage": "Metrics Reduction"
+  },
+  {
+    "type": "build",
+    "name": "Tenrox-R1_1234",
+    "date": "2014-04-18T12:12:00Z",
+    "status": "completed",
+    "metrics": {
+      "test": {
+        "value": 64,
+        "status": "ok"
+      },
+      "maintainability": {
+        "value": 53,
+        "status": "ok"
+      },
+      "security": {
+        "value": 64,
+        "status": "enough"
+      },
+      "workmanship": {
+        "value": 72,
+        "status": "enough"
+      },
+      "status": "completed"
+    },
+    "build": {
+      "debug": true,
+      "release": true,
+      "status": "completed",
+      "date": "2014-04-18T10:40:00Z"
+    },
+    "unitTest": {
+      "passed": 142,
+      "declined": 10,
+      "passedPercentage": 73,
+      "coveredCode": 76,
+      "status": "completed"
+    },
+    "functionalTest": {
+      "passed": 4321,
+      "declined": 2145,
+      "passedPercentage": 68,
+      "coveredCode": 23,
+      "status": "completed"
+    }
+  },
+  {
+    "type": "firewall",
+    "name": "432460",
+    "owner": "sammy",
+    "date": "2014-04-17T07:51:00Z",
+    "status": "rejected",
+    "metrics": {
+      "test": {
+        "value": 64,
+        "status": "ok"
+      },
+      "maintainability": {
+        "value": 53,
+        "status": "ko"
+      },
+      "security": {
+        "value": 64,
+        "status": "enough"
+      },
+      "workmanship": {
+        "value": 72,
+        "status": "enough"
+      },
+      "status": "rejected"
+    },
+    "build": {
+      "debug": false,
+      "release": false,
+      "status": "pending"
+    },
+    "unitTest": {
+      "passed": 0,
+      "declined": 0,
+      "coveredCode": 0,
+      "status": "pending"
+    },
+    "functionalTest": {
+      "passed": 0,
+      "declined": 0,
+      "coveredCode": 0,
+      "status": "pending"
+
+    },
+    "errorMessage": "Metrics Reduction"
+  },
+  {
+    "type": "firewall",
+    "name": "432459",
+    "owner": "sammy",
+    "date": "2014-04-16T06:43:00Z",
+    "status": "accepted",
+    "metrics": {
+      "test": {
+        "value": 64,
+        "status": "ok"
+      },
+      "maintainability": {
+        "value": 53,
+        "status": "ok"
+      },
+      "security": {
+        "value": 64,
+        "status": "enough"
+      },
+      "workmanship": {
+        "value": 72,
+        "status": "enough"
+      },
+      "status": "completed"
+    },
+    "build": {
+      "debug": true,
+      "release": true,
+      "status": "completed",
+      "date": "2014-04-18T10:40:00Z"
+    },
+    "unitTest": {
+      "passed": 142,
+      "declined": 10,
+      "passedPercentage": 73,
+      "coveredCode": 76,
+      "status": "completed"
+    },
+    "functionalTest": {
+      "passed": 4321,
+      "declined": 2145,
+      "passedPercentage": 68,
+      "coveredCode": 23,
+      "status": "completed"
+    }
+  }
+]

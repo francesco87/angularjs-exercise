@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="top">
+    <div class="top-item">Change list / build</div>
+    <div class="top-item">Owner</div>
+    <div class="top-item">Time started</div>
+    <div class="top-item">State</div>
+    <div class="top-item">Metrics</div>
+    <div class="top-item">Build</div>
+    <div class="top-item">Unit test</div>
+    <div class="top-item">Functional test</div>
+  </div>
+
+  <ul>
+    <li ng-repeat="item in datas" ng-class="item.status" ng-click="showDetails($event)">
+      <div class="name">
+        <img ng-src="/images/{{item.type}}-{{item.status}}.png" />
+        {{item.name}}
+      </div>
+      <div class="owner">
+        {{item.owner}}
+      </div>
+      <div class="start-time">
+        {{item.date | date: 'MM/dd/yyyy h:mm a'}}
+      </div>
+      <div class="status">
+        {{item.status}}
+      </div>
+      <div class="metrics"><span class="box" ng-class="item.metrics.status"></span></div>
+      <div class="build"><span class="box" ng-class="item.build.status"></span></div>
+      <div class="unit-test"><span class="box" ng-class="item.unitTest.status"></span></div>
+      <div class="functional-test"><span class="box" ng-class="item.functionalTest.status"></span></div>
+
+      <!-- Details -->
+      <div class="details">
+        <!-- Metrics -->
+        <div class="metrics-details" ng-class="item.metrics.status" ng-click="showModal('metrics', item.metrics)">
+          <p>Metrics</p>
+          <div class="test">
+            <img ng-src="/images/arrow-{{item.metrics.test.status}}.png" />
+            <span>{{item.metrics.test.value}}</span>
+            <p>Test</p>
+          </div>
+          <div class="maintainability">
+            <img ng-src="/images/arrow-{{item.metrics.maintainability.status}}.png" />
+            <span>{{item.metrics.maintainability.value}}</span>
+            <p>Maintainability</p>
+          </div>
+          <div class="security">
+            <img ng-src="/images/arrow-{{item.metrics.security.status}}.png" />
+            <span>{{item.metrics.security.value}}</span>
+            <p>Security</p>
+          </div>
+          <div class="workmanship">
+            <img ng-src="/images/arrow-{{item.metrics.security.status}}.png" />
+            <span>{{item.metrics.workmanship.value}}</span>
+            <p>Workmanship</p>
+          </div>
+        </div>
+
+        <!-- Build -->
+        <div class="build-details" ng-class="item.build.status" ng-click="showModal('build', item.build)">
+          <p>Build</p>
+          <div class="debug">
+            <img src="/images/build-big.png" />
+            <p>Debug</p>
+          </div>
+          <div class="release">
+            <img src="/images/build-big.png" />
+            <p>Release</p>
+          </div>
+          <p class="date">{{item.build.date | date: 'MM/dd/yyyy h:mm a'}}</p>
+        </div>
+
+        <!-- Unit test -->
+        <div class="unit-test-details" ng-class="item.unitTest.status" ng-click="showModal('unit test', item.unitTest)">
+          <p>Unit Test</p>
+          <div class="chart">
+            <img src="/images/chart01.png">
+            <span class="passed">{{item.unitTest.passed}}</span>
+            <span class="declined">{{item.unitTest.declined}}</span>
+          </div>
+          <div class="result">
+            <b>{{item.unitTest.passedPercentage}}%</b>
+            <span>test passed</span>
+          </div>
+          <div class="code">
+            <p class="percentage" ng-class="{'green': item.unitTest.coveredCode > 50, 'red': item.unitTest.coveredCode <= 50}">{{item.unitTest.coveredCode}}%</p>
+            <p class="text">code covered</p>
+            <div class="bar" style="width: {{item.unitTest.coveredCode}}%"></div>
+          </div>
+        </div>
+
+        <!-- Functional test -->
+        <div class="functional-test-details" ng-class="item.functionalTest.status" ng-click="showModal('functional test', item.functionalTest)">
+          <p>Functional Test</p>
+          <div class="chart">
+            <img src="/images/chart02.png">
+            <span class="passed">{{item.functionalTest.passed}}</span>
+            <span class="declined">{{item.functionalTest.declined}}</span>
+          </div>
+          <div class="result">
+            <b>{{item.functionalTest.passedPercentage}}%</b>
+            <span>test passed</span>
+          </div>
+          <div class="code">
+            <p class="percentage" ng-class="{'green': item.functionalTest.coveredCode > 50, 'red': item.functionalTest.coveredCode <= 50}">{{item.unitTest.coveredCode}}%</p>
+            <p class="text">code covered</p>
+            <div class="bar" style="width: {{item.functionalTest.coveredCode}}%"></div>
+          </div>
+        </div>
+
+        <div class="result">
+          <span>result</span>
+          <div class="message">
+            <div ng-if="item.type === 'firewall' && item.status === 'accepted'">
+              <p>Change Accepted</p>
+              <p class="big">Auto-Merged</p>
+              <button>Merged Build</button>
+            </div>
+            <div ng-if="item.type === 'firewall' && item.status === 'rejected'">
+              <p>Change Rejected</p>
+              <p class="big">Metrics reduction</p>
+              <button>Find issues</button>
+            </div>
+            <div ng-if="item.type === 'build' && item.status === 'completed'">
+              <p>Complete</p>
+              <div class="deploy">
+                <button>Deploy</button>
+                <div>
+                  <label>to:</label>
+                  <select>
+                    <option>Production</option>
+                    <option>Stage</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="modal-bg"></div>
+<div class="modal-box">
+  <div class="close" ng-click="hideModal()">X</div>
+  <h2 class="title">{{dataType}}</h2>
+  <canvas ng-if="dataType !== 'build'" id="doughnut" class="chart chart-doughnut" chart-data="dataChart" chart-labels="labelsChart"></canvas>
+  <div ng-if="dataType === 'build'" class="build">
+    <div class="box">
+      <img src="/images/build-big.png" />
+      <p>Debug</p>
+    </div>
+    <div class="box">
+      <img src="/images/build-big.png" />
+      <p>Release</p>
+    </div>
+  </div>
+  <div class="status" ng-class="data.status">{{data.status}}</div>
+</div>

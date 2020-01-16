@@ -1,0 +1,440 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #f9fbfd;
+  font-family: Arial;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  margin: 40px;
+  padding: 0;
+}
+
+.container .top {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.container .top .top-item {
+  float: left;
+  width: 12.5%;
+}
+
+.container ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container ul li {
+  border: 3px solid #cacacb;
+  margin-bottom: 5px;
+  padding: 7.5px;
+  overflow: hidden;
+  color: #888;
+  background: linear-gradient(to right, #edf3fb 0%,#ffffff 100%);
+  height: 25px;
+}
+
+ .container ul li.running {
+   border-color: #427fb3;
+   color: #427fb3;
+   background: linear-gradient(to right, #eff2f9 0%,#ffffff 100%);
+ }
+
+.container ul li.completed,
+.container ul li.accepted {
+  border-color: #568d30;
+  color: #568d30;
+  background: linear-gradient(to right, #eff4ee 0%,#ffffff 100%);
+}
+
+.container ul li.rejected {
+  border-color: #bc0008;
+  color: #bc0008;
+  background: linear-gradient(to right, #feebeb 0%,#ffffff 100%);
+}
+
+.container ul li > div {
+  float: left;
+  width: 12.5%;
+  line-height: 24px;
+  min-height: 24px;
+  cursor: pointer;
+}
+
+.container ul li div.start-time {
+  text-transform: lowercase;
+}
+
+.container ul li div.status {
+  text-transform: capitalize;
+}
+
+.container ul li > div.name img {
+  float: left;
+  margin-right: 10px;
+}
+
+.container ul li > div .box {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #cacacb;
+  background: #d8d8d8;
+  display: block;
+  margin-top: -4px;
+  margin-bottom: -3px;
+}
+
+.container ul li > div .box.completed,
+.container ul li > div .box.accepted {
+  background-color: #548039;
+}
+
+.container ul li > div .box.rejected {
+  background-color: #be0712;
+}
+
+.container ul li > div .box.running {
+  background: linear-gradient(to right, #5e9cd3 0%, #5e9cd3 60%, #d8d8d8 60%, #d8d8d8 60%, #d8d8d8 100%);
+}
+
+.container ul li > .details {
+  overflow: hidden;
+  width: 100%;
+  min-height: 0;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  cursor: default;
+}
+
+.container ul li > .details > div {
+  width: 16%;
+  border: 2px solid #cacacb;
+  margin: 0 1%;
+  float: left;
+  padding: 5px;
+  box-shadow: 3px 3px 10px #999;
+  height: 180px;
+  cursor: pointer;
+}
+
+.container ul li > .details div.rejected {
+  border-color: #be0712;
+}
+
+.container ul li > .details div.completed {
+  border-color: #548039;
+  color: #548039;
+}
+
+.container ul li > .details div.running {
+  border-color: #427fb3;
+  color: #427fb3;
+}
+
+.container ul li > .details div.pending {
+  color: #888;
+}
+
+.container ul li > .details > div > p {
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+.container ul li > .details div.completed > p {
+  color: #548039;
+}
+
+.container ul li > .details .metrics-details > div {
+  width: 50%;
+  float: left;
+  text-align: center;
+  position: relative
+}
+
+.container ul li > .details .metrics-details > div > span {
+  color: #333;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 17%;
+}
+
+.container ul li > .details .metrics-details > div.test > span,
+.container ul li > .details .metrics-details > div.maintainability > span {
+  color: #fff;
+}
+
+.container ul li > .details .metrics-details > div > p {
+  margin: 0 0 5px;
+  color: #333;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.container ul li > .details .build-details > div {
+  float: left;
+  width: 50%;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.container ul li > .details .build-details > div > p {
+  margin: 0;
+  color: #204571;
+}
+
+.container ul li > .details .build-details > p.date {
+  text-align: center;
+  font-weight: normal;
+  color: #333;
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+}
+
+.container ul li > .details .unit-test-details .chart,
+.container ul li > .details .functional-test-details .chart {
+  position: relative;
+}
+
+.container ul li > .details .unit-test-details .chart span,
+.container ul li > .details .functional-test-details .chart span {
+  position: absolute;
+  font-size: 12px;
+  color: #333;
+}
+
+.container ul li > .details .unit-test-details .chart span.passed,
+.container ul li > .details .functional-test-details .chart .passed {
+ left: 15px;
+ top: 40px;
+}
+
+.container ul li > .details .unit-test-details .chart span.declined,
+.container ul li > .details .functional-test-details .chart .declined {
+  right: 25px;
+  top: 38px;
+}
+
+.container ul li > .details .unit-test-details .chart,
+.container ul li > .details .unit-test-details .result,
+.container ul li > .details .functional-test-details .chart,
+.container ul li > .details .functional-test-details .result{
+  width: 50%;
+  float: left;
+  height: 100px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.container ul li > .details .unit-test-details .result,
+.container ul li > .details .functional-test-details .result{
+  text-align: center;
+}
+
+.container ul li > .details .unit-test-details .result b,
+.container ul li > .details .functional-test-details .result b {
+  font-size: 44px;
+  text-align: center;
+  line-height: 40px;
+  font-weight: normal;
+}
+.container ul li > .details .unit-test-details .result span,
+.container ul li > .details .functional-test-details .result span {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  line-height: 14px;
+}
+
+.container ul li > .details .unit-test-details .code,
+.container ul li > .details .functional-test-details .code {
+  width: 100%;
+  height: 32px;
+  background: #f6cbae;
+  float: left;
+  text-align: center;
+  position: relative;
+}
+
+.container ul li > .details .unit-test-details .code p.percentage,
+.container ul li > .details .functional-test-details .code p.percentage {
+  color: #333;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  left: 0;
+  top: 2px;
+  z-index: 2;
+}
+
+.container ul li > .details .unit-test-details .code p.percentage.green,
+.container ul li > .details .functional-test-details .code p.percentage.green {
+  color: #2d4b1c;
+}
+
+.container ul li > .details .unit-test-details .code p.percentage.red,
+.container ul li > .details .functional-test-details .code p.percentage.red {
+  color: #7f3910;
+}
+
+.container ul li > .details .unit-test-details .code p.text,
+.container ul li > .details .functional-test-details .code p.text {
+  color: #333;
+  font-size: 12px;
+  margin: 0;
+  line-height: 12px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 16px;
+  z-index: 2;
+}
+
+.container ul li > .details .functional-test-details .code .bar,
+.container ul li > .details .unit-test-details .code .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 32px;
+  background: #c6dfb5;
+  z-index: 1;
+}
+
+.container ul li > .details .result {
+  border: none;
+  box-shadow: none;
+  text-align: center;
+}
+
+.container ul li > .details .result span {
+  color: #333;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.container ul li > .details .result p.big {
+  font-size: 28px;
+}
+
+.container ul li > .details .result button {
+  background: #5e9cd3;
+  color: #fff;
+  width: 150px;
+  text-align: center;
+  border: 1px solid #d7d5d3;
+  font-size: 14px;
+  padding: 7px;
+  margin: 15px 0;
+}
+
+.container ul li > .details .result select {
+  width: 120px;
+  border: 1px solid #5e9cd3;
+  padding: 7px;
+  color: #5e9cd3;
+  border-radius: 0;
+  height: 30px;
+  font-size: 14px;
+}
+
+.modal-bg {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.8);
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.modal-box {
+  width: 600px;
+  height: 420px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow:5px 5px 10px #222, -5px -5px 10px #222;
+  position: fixed;
+  top: -500px;
+  left: 50%;
+  margin-left: -300px;
+  z-index: 11;
+  padding: 25px;
+}
+
+.modal-box .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #aaa;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.modal-box .close:hover {
+  color: #666;
+}
+
+.modal-box .title {
+  text-align: center;
+  font-weight: normal;
+  text-transform: capitalize;
+  margin-top: 0;
+  font-size: 32px;
+}
+
+.modal-box .status {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  text-align: center;
+  color: #888;
+}
+
+.modal-box .status.completed {
+  color: #2d4b1c;
+ }
+
+.modal-box .status.rejected {
+  color: #be0712;
+}
+
+.modal-box .status.running {
+  color: #427fb3;
+}
+
+.modal-box .build  {
+  width: 100%;
+  overflow: hidden;
+  margin: 60px 0;
+}
+
+.modal-box .build .box {
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+.modal-box .build .box img {
+  width: 150px;
+}
+
+.modal-box .build .box p {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+}
